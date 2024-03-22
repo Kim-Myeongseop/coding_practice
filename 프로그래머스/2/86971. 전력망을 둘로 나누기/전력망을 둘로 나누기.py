@@ -10,9 +10,7 @@ def solution(n, wires):
         a, b = wires[i]
         search_zone[a-1] = 1
         a_tree = [l   for l in link_dict[a]   if l != b]
-
         for link in a_tree:
-            print(link)
             if search_zone[link-1] == 0:
                 a_tree.extend(link_dict[link])
                 search_zone[link-1] = 1
