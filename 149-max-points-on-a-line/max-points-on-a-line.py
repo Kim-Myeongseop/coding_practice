@@ -1,6 +1,5 @@
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
-        import math
         if len(points) == 1:
             return 1
         point_dict = {}
