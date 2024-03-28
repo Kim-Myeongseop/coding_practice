@@ -17,8 +17,7 @@ class Solution:
                         point_dict[(a,b)] = 1
                     else:
                         point_dict[(a,b)] += 1
-
-        print(point_dict)                        
+                   
         answer = sorted(point_dict.items(), key=lambda x: x[1], reverse=True)[0][1]
         answer = int(sqrt(answer + 1/4) + 1/2)
 
