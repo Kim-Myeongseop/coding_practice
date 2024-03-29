@@ -9,7 +9,6 @@ class Solution:
                 if count_dict[nums[j]] > k:
                     continue
             while j < len(nums)-1:
-                print(i,j)
                 j += 1
                 if count_dict.get(nums[j]):
                     count_dict[nums[j]] += 1
