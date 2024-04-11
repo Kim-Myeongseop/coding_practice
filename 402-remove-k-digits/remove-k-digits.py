@@ -9,7 +9,7 @@ class Solution:
                 stack.pop()
                 k -= 1
             stack.append(n)
-        stack = ''.join(stack)
         stack = stack[:len(stack)-k]
+        stack = ''.join(stack)
         return str(int(stack)) if stack else '0'
 
