@@ -1,17 +1,11 @@
 def solution(arr):
     stk = []
+    arr_len = len(arr)
     i = 0
-    
-    arr_size = len(arr)
-    
-    while i < arr_size:
-        if not stk:
+    while i < arr_len:
+        if not stk or stk[-1] < arr[i]:
             stk.append(arr[i])
             i += 1
         else:
-            if stk[-1] < arr[i]:
-                stk.append(arr[i])
-                i += 1
-            else:
-                stk.pop()
+            stk.pop()            
     return stk
