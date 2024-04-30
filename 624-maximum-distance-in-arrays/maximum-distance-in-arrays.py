@@ -7,8 +7,8 @@ class Solution:
             min_list.append((i, array[0]))
         max_list.sort(key=lambda x: x[1])
         min_list.sort(key=lambda x: x[1], reverse=True)
-        # if max_list[-1][0] == min_list[-1][0]:
-        #     res = max(max_list[-2][1] - min_list[-1][1], max_list[-1][1] - min_list[-2][1])
-        # else:
-        #     res = max_list[-1][1] - min_list[-1][1]
-        return max(max_list[-2][1] - min_list[-1][1], max_list[-1][1] - min_list[-2][1]) if max_list[-1][0] == min_list[-1][0] else max_list[-1][1] - min_list[-1][1]
+        if max_list[-1][0] == min_list[-1][0]:
+            res = max(max_list[-2][1] - min_list[-1][1], max_list[-1][1] - min_list[-2][1])
+        else:
+            res = max_list[-1][1] - min_list[-1][1]
+        return res
