@@ -1,7 +1,8 @@
 def solution(s):
     answer = []
     s = s[1:-1].split('},')
-    s.sort(key=lambda x: len(x))
+    # s.lstrip('{').rstrip('}').split('},{') 으로 더 편하게 할 수 있다.
+    s.sort(key=lambda x: len(x))   # key에는 함수가 오기 때문에, key=len도 가능하다.
     s_len = len(s)
     
     answer.append(int(s[0].replace('{','').replace('}','')))
