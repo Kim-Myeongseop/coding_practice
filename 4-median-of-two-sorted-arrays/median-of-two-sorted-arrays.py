@@ -12,15 +12,11 @@ class Solution:
         while l <= r:
             m1 = (l+r)//2   # len1 = 4, len2 = 5 라 하면, m1은 left subset1의 원소 개수를 의미
             m2 = half - m1   # 따라서, m2도 left subset2의 원소 개수를 의미 해야하므로 다음과 같다. 홀수일 때는 포함
-            print(l, r)
-            print(m1, m2)
 
             left_sup1 = float('-inf') if m1-1 == -1 else nums1[m1-1]   # if m1-1 == -1 이 더 직관적이어서 사용.
             left_sup2 = -float('inf') if m2-1 == -1 else nums2[m2-1]   # float('inf'), -float('inf') 모두 가능
             right_inf1 = float('inf') if m1 == len1 else nums1[m1]
             right_inf2 = float('inf') if m2 == len2 else nums2[m2]
-            print(left_sup1, right_inf1)
-            print(left_sup2, right_inf2)
 
             if left_sup1 <= right_inf2 and left_sup2 <= right_inf1:   # left_sup 끼리, right_inf 끼리 비교 남음
                 if total%2 == 0:
