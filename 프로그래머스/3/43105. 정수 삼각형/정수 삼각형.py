@@ -14,5 +14,4 @@ def solution(triangle):
                     prev_num = max(sum_list[i-1][j-1], sum_list[i-1][j])
             temp.append(triangle[i][j] + prev_num)
         sum_list.append(temp)
-    answer = max(temp)
-    return answer
+    return max(temp)
