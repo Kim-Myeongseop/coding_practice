@@ -1,5 +1,4 @@
 def solution(triangle):
-    answer = 0
     sum_list = []
     for i in range(len(triangle)):
         temp = []
@@ -17,11 +16,3 @@ def solution(triangle):
         sum_list.append(temp)
     answer = max(temp)
     return answer
-    
-    
-    '''
-    7
-    10 15
-    18 16 15
-    '''
-    # return answer
