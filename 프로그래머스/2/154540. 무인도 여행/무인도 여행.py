@@ -27,7 +27,6 @@ def solution(maps):
                     
                     # queue 삭제 : pop은 원소가 없으면 error가 발생하지만 이 문제에선 그런 경우가 없다.
                     queue.pop(0)   # queue = queue[1:]
-                    # queue = queue[1:]
                 
                 # total 값 추가    
                 answer.append(total)
