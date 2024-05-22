@@ -4,7 +4,7 @@ def solution(priorities, location):
     while priorities:
         # queue에서 원소를 하나 꺼낸다.
         process = priorities.pop(0)
-        if not priorities:
+        if not priorities:   # 길이가 0이면 마지막 process 이므로 answer 하나 추가하고 실행 후 종료
             answer += 1
             break
         location -= 1
