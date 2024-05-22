@@ -1,6 +1,6 @@
 def solution(priorities, location):
     answer = 0
-    queue_len = len(priorities)
+    queue_len = len(priorities)   # location과 queue_len-1 을 pointer로 활용
     while priorities:
         # queue에서 원소를 하나 꺼낸다.
         process = priorities.pop(0)
