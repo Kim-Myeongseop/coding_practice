@@ -1,6 +1,6 @@
 import sys
-sys.setrecursionlimit(10**8)
-#input = sys.stdin.readline
+sys.setrecursionlimit(10**6)
+input = sys.stdin.readline
 
 N = int(input())
 arr = [list(map(int, input().strip())) for _ in range(N)]
@@ -25,3 +25,27 @@ def divide(array):
 output = divide(arr)
 output = str(output).replace('[', '(').replace(']', ')').replace(',', '').replace(' ', '')
 print(output)
+
+'''
+def quadtree(n, vlist):
+    s = 0
+    for l in vlist:
+        s += sum(l)
+    
+    if s == n**2:
+        return '1'
+    if s == 0:
+        return '0'
+    
+    half = n//2
+    temp = '('
+    temp += quadtree(half,[l[:half] for l in vlist[:half]])
+    temp += quadtree(half,[l[half:] for l in vlist[:half]])
+    temp += quadtree(half,[l[:half] for l in vlist[half:]])
+    temp += quadtree(half,[l[half:] for l in vlist[half:]])
+    temp += ')'
+    
+    return temp
+
+print(quadtree(N, ip))
+'''
