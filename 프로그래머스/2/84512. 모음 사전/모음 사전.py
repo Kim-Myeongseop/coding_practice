@@ -1,15 +1,11 @@
 def solution(word):
-    answer = 1
-    i = 4
-    mul_list = [1, 6, 31, 156, 781]
+    answer = 0
+    mul_list = [781, 156, 31, 6, 1]
+    mul_idx = 0
     alpha_dict = {'A':0, 'E':1, 'I':2, 'O':3, 'U':4}
     for char in word:
-        if i == 4:
-            answer += alpha_dict[char] * mul_list[i]
-        if i < 4:
-            answer += 1 + alpha_dict[char] * mul_list[i]
-        i -= 1
-        print(answer)
+        answer += 1 + alpha_dict[char] * mul_list[mul_idx]
+        mul_idx += 1
     return answer
     '''
     0 + i * (1 + 156*5)
