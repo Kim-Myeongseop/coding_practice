@@ -22,9 +22,10 @@ def divide(array):
         else:
             return answer
         
-#output = divide(arr)
-#output = str(output).replace('[', '(').replace(']', ')').replace(',', '').replace(' ', '')
-#print(output)
+output = divide(arr)
+output = str(output).replace('[', '(').replace(']', ')').replace(',', '').replace(' ', '')
+print(output)
+
 
 
 def conquer(x, y, n):
@@ -42,5 +43,5 @@ def conquer(x, y, n):
                 return
     print(check, end='')
 
-conquer(0, 0, N)
+# conquer(0, 0, N)
     
