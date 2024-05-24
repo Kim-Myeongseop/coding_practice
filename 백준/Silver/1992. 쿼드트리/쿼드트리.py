@@ -22,30 +22,25 @@ def divide(array):
         else:
             return answer
         
-output = divide(arr)
-output = str(output).replace('[', '(').replace(']', ')').replace(',', '').replace(' ', '')
-print(output)
+#output = divide(arr)
+#output = str(output).replace('[', '(').replace(']', ')').replace(',', '').replace(' ', '')
+#print(output)
 
-'''
-def quadtree(n, vlist):
-    s = 0
-    for l in vlist:
-        s += sum(l)
-    
-    if s == n**2:
-        return '1'
-    if s == 0:
-        return '0'
-    
-    half = n//2
-    temp = '('
-    temp += quadtree(half,[l[:half] for l in vlist[:half]])
-    temp += quadtree(half,[l[half:] for l in vlist[:half]])
-    temp += quadtree(half,[l[:half] for l in vlist[half:]])
-    temp += quadtree(half,[l[half:] for l in vlist[half:]])
-    temp += ')'
-    
-    return temp
 
-print(quadtree(N, ip))
-'''
+def conquer(x, y, n):
+    check = arr[x][y]
+    
+    for i in range(x, x+n):
+        for j in range(y, y+n):
+            if arr[i][j] != check:
+                print('(', end='')
+                conquer(x, y, n//2)
+                conquer(x, y+n//2, n//2)
+                conquer(x+n//2, y, n//2)
+                conquer(x+n//2, y+n//2, n//2)
+                print(')', end='')
+                return
+    print(check, end='')
+
+conquer(0, 0, N)
+    
