@@ -15,7 +15,7 @@ def isprime(num):
     for n in range(2, sqrt+1):
         if num/n == int(num/n):
             sign = False
-    return sign
+    return sign if num != 1 else False
 
 def solution(numbers):
     answer = 0
@@ -32,7 +32,7 @@ def solution(numbers):
     for num in num_list:
         if num == '2':
             answer += 1
-        elif num[0] == '0' or num[-1] in ['0','2','4','6','8'] or num == '1':   # 검사 불필요
+        elif num[0] == '0' or num[-1] in ['0','2','4','6','8']:   # 검사 불필요
             continue
         else:
             if isprime(int(num)):
