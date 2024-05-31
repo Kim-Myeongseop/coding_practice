@@ -42,3 +42,27 @@ def solution(user_id, banned_id):
             break
         
     return answer
+
+# 다른 풀이 1
+# from itertools import permutations
+
+# def solution(user_id, banned_id):
+#     answer = []
+#     for item in list(permutations(user_id, len(banned_id))):
+#         sign = True
+#         for i in range(len(item)):   # item과 banned_id 에서 id 하나씩 비교
+#             if len(item[i]) != len(banned_id[i]):
+#                 sign = False
+#                 break
+#             else:
+#                 for j in range(len(item[i])):   # 한 글자씩 비교
+#                     if item[i][j] == banned_id[i][j] or banned_id[i][j] == "*":
+#                         continue
+#                     else:
+#                         sign = False
+#                         break
+#             if not sign:
+#                 break
+#         if sign and set(item) not in answer:
+#             answer.append(set(item))
+#     return len(answer)
