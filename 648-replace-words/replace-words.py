@@ -13,10 +13,10 @@ class Solution:
                     if root[i] != word[i]:
                         sign = False
                         break
-                if sign == True:
+                if sign:
                     answer.append(root)
                     break
-            if sign == False:
+            if not sign:
                 answer.append(word)
         return ' '.join(answer)
 
