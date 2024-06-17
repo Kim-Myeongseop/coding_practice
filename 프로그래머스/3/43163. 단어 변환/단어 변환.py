@@ -3,7 +3,7 @@ from collections import deque   # stack(bfs), queue(dfs) 구현
 def solution(begin, target, words):
     answer = 0
     
-    # visited 를 만들기 위해 linked 생성
+    # visited, linked 생성
     linked = {begin:[]}
     visited = {}
     for w in words:
@@ -24,7 +24,7 @@ def solution(begin, target, words):
             if diff_cnt == 1:
                 linked[word].append(w)
     
-    # BFS(Breadth-First Search)
+    # DFS(Depth-First Search)
     search_list = deque()
     search_list.append(begin)
     cnt = 0
@@ -39,4 +39,6 @@ def solution(begin, target, words):
         cnt += 1
         if target in search_list:
             return cnt
+    
+    # BFS(Breadth-First Search)
     return answer
