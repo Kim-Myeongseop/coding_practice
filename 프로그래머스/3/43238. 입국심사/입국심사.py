@@ -2,7 +2,7 @@ def solution(n, times):
     answer = []
     # 시간 자체를 변수로 예측하는 방법. 이분 탐색으로 최적 점을 찾자.
     l = 0
-    r = max(times)*n
+    r = min(times)*n
     while l < r:
         total_people = 0
         mid = (l+r)//2
