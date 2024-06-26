@@ -43,6 +43,7 @@ def solution(distance, rocks, n):
             l = mid + 1
             answer = mid
     
+    # mid가 실제로 돌과 돌 사이에 없는 거리일 수 있다.(이 부분이 없어도 돌아가는 이유를 모르겠다.)
     mid = answer
     linked_copy = {k:v[:] for k, v in linked.items()}   # 반드시 v[:] 해줘야한다.
     for rock in rocks:
