@@ -43,4 +43,20 @@ def solution(distance, rocks, n):
             l = mid + 1
             answer = mid
     
+    mid = answer
+    linked_copy = {k:v[:] for k, v in linked.items()}   # 반드시 v[:] 해줘야한다.
+    for rock in rocks:
+        left, right = linked_copy[rock]
+        if rock - left < mid:
+            linked_copy[left][1] = right
+            linked_copy[right][0] = left
+            linked_copy[rock] = None   # 없는 돌
+    
+    d_list = []
+    for rock in rocks + [distance]:
+        if linked_copy[rock]:   # 돌이 있으면
+            d = rock - linked_copy[rock][0]
+            if d >= mid:
+                d_list.append(d)
+    answer = min(d_list)
     return answer
