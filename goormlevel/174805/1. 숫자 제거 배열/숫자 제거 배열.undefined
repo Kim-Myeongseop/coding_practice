@@ -1,0 +1,16 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+import sys
+input = sys.stdin.readline
+user_input = input()
+arr = input()
+
+_, K = user_input.split()
+arr = arr.split()
+
+answer = 0
+for num in arr:
+	if K not in num:
+		answer += 1
+
+print(answer)
