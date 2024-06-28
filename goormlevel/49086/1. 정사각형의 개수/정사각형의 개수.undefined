@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+import sys
+input = sys.stdin.readline
+user_input = input()
+user_input = int(user_input)
+
+answer = 0
+for i in range(1, user_input+1):
+	row = 1 + user_input - i
+	col = 1 + user_input - i
+	answer += row * col
+print(answer)
