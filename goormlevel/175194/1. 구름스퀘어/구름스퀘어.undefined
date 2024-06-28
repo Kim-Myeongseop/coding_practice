@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+import sys
+input = sys.stdin.readlines   # readlines 임에 주의
+user_input = input()
+N = user_input.pop(0)
+
+events = []
+for row in user_input:
+	s, e = row.strip().split()
+	events.append([int(s),int(e)])
+events.sort(key=lambda x: x[1])
+
+answer = 0
+last_end = -1
+for event in events:
+	if event[0] > last_end:
+		answer += 1
+		last_end = event[1]
+
+print(answer)
