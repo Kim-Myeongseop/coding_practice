@@ -1,0 +1,28 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+import sys
+input = sys.stdin.readline
+user_input = input()
+user_input = user_input.split()
+
+operators = ['*', '+', '-']
+value_list = []
+for eq in user_input:   # A, B
+	for operator in operators:
+		eq = eq.replace(operator, f'){operator}(')
+	eq = '(' + eq + ')'
+	eq = eq.replace('-(', '+(-')
+	
+	plus_split = eq.split('+')
+	value = 0
+	for sub_eq in plus_split:
+		multi_split = sub_eq.split('*')
+		temp = 1
+		for num in multi_split:
+			if num not in operators:
+				temp *= int(num[1:-1])
+		value += temp
+	
+	value_list.append(value)
+
+print(max(value_list))
