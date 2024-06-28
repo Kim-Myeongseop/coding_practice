@@ -1,0 +1,23 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+import sys
+input = sys.stdin.readline
+user_input = input()
+arr = input()
+
+N, K = list(map(int, user_input.split()))
+arr = list(map(int, arr.split()))
+
+score_dict = {}
+for num in arr:
+	visit = num
+	# 이진수로 바꿔서 점수 구해서 원래 수와 대응시키기
+	temp = []
+	while visit:
+		temp.append(visit%2)
+		visit = visit//2
+	score = sum(temp)
+	score_dict[num] = score
+
+answer = sorted(arr, key=lambda x: (score_dict[x], x), reverse=True)[K-1]
+print(answer)
