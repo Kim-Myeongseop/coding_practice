@@ -1,4 +1,4 @@
-def solution(phone_book):
+def solution(phone_book):   # 102.42ms
     answer = True
     phone_book.sort()
     for i in range(len(phone_book)-1):
