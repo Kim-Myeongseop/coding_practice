@@ -1,0 +1,67 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+import sys
+input = sys.stdin.readline
+
+N = int(input())
+arr = list(map(int, input().split()))
+
+answer = 0
+sign = False
+for i in range(N):
+	if i < N-1 and arr[i] > arr[i+1]:
+		if sign == False:   # 첫 감소
+			sign = True
+	
+	if i < N-1 and arr[i] < arr[i+1]:
+		if sign == True:   # 감소 이후 증가
+			answer = 0
+			break
+	
+	answer += arr[i]
+
+print(answer)
+
+
+
+
+
+
+
+
+
+
+
+'''
+import sys
+input = sys.stdin.readline
+N = int(input())
+arr = list(map(int, input().split()))
+
+max_value = max(arr)
+max_index = arr.index(max_value)
+before = arr[0]
+score = 0
+
+for i in range(max_index):
+   recent = arr[i]
+   if recent >= before:
+      score += recent
+   else:
+      score = 0
+      break
+   before = recent
+
+before_second = max_value
+
+if score != 0 :
+   for j in range(max_index, len(arr)):
+      recent = arr[j]
+      if recent <= before_second:
+         score += recent
+      else:
+         score = 0
+         break
+      before_second = recent
+print(score)
+'''
