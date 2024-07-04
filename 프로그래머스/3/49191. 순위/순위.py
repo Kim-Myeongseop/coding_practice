@@ -34,3 +34,10 @@ def solution(n, results):
         if len(set(win_list)) + len(set(lose_list)) == n-1:
             answer += 1
     return answer
+
+# 다른 풀이 1
+'''
+from collections import defaultdict
+win, lose = defaultdict(set), defaultdict(set)   # value의 default를 set으로 하는 dict 생성
+# set의 method인 add(원소 추가), remove(원소 삭제), update(원소들 추가) 를 이용해서 풀이
+'''
