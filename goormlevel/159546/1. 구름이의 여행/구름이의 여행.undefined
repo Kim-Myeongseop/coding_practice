@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+from collections import deque, defaultdict
+import sys
+input = sys.stdin.readlines
+user_input = input()
+
+N, M, K = map(int, user_input[0].strip().split())
+
+# 모든 연결 상태를 기록
+graph = defaultdict(list)   # value default를 list로 설정하는 dict
+for row in user_input[1:]:
+	a, b = map(int, row.strip().split())
+	graph[a].append(b)
+	graph[b].append(a)
+
+# 1을 시작으로 방문 횟수를 재면서 최초 방문 횟수보다 크면 초기화 하지 않는다. (이미 방문한 적 있으므로)
+visited = [float('inf') for _ in range(N)]
+search_list = deque()
+search_list.append(1)   # 1번 노드 추가
+visited[0] = 0   # 1번 노드의 거리는 0
+while search_list:
+	visit = search_list.popleft()
+	for next_ in graph[visit]:   # graph는 노드 이름으로 기록했음을 주의
+		if visited[next_-1] > visited[visit-1] + 1:   # 현재 노드에서 + 1 한 것 보다 작거나 같으면 이전에 방문한 적 있음.
+			visited[next_-1] = visited[visit-1] + 1
+			search_list.append(next_)   # 처음 방문한 노드면 초기화가 도ㅒㅆ을테고 처음 방문한 노드면 search_list에 추가한다.
+			
+if visited[-1] <= K:
+	print('YES')
+else:
+	print('NO')
