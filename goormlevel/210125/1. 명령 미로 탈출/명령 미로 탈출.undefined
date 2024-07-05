@@ -1,0 +1,36 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+import sys
+input = sys.stdin.readlines
+user_input = input()
+
+N, K = map(int, user_input[0].strip().split())
+moving = user_input[1].strip()
+matrix = [row.strip().split() for row in user_input[2:]]
+for i in range(N):
+	for j in range(N):
+		if matrix[i][j] == '1':
+			row, col = i, j
+
+directions = {'U':(-1,0), 'D':(1,0), 'L':(0,-1), 'R':(0,1)}
+cnt = 0
+sign = False
+for move in moving:
+	d_row, d_col = directions[move]
+	if 0 <= row+d_row < N and 0 <= col+d_col < N:
+		next_ = matrix[row+d_row][col+d_col]
+		if next_ in '01':   # 이동 가능
+			cnt += 1
+			row = row+d_row
+			col = col+d_col
+		elif next_ == '2':   # 이동 가능 and 탈출
+			cnt += 1
+			sign = True
+			break
+		else:   # 이동 불가(벽) => 아무 것도 하지 않음
+			pass
+	
+if sign:
+	print('SUCCESS ' + str(cnt))
+else:
+	print('FAIL')
