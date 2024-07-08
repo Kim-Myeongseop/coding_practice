@@ -9,7 +9,7 @@ def solution(n, s, a, b, fares):
         matrix[fare[1]-1][fare[0]-1] = fare[2]
     
     # 중간을 걸쳐 가는 경로가 더 작은 경우 초기화
-    for k in range(n):
+    for k in range(n):   # 중간 index가 가장 먼저 나와야한다.
         for i in range(n):
             for j in range(n):
                 matrix[i][j] = min(matrix[i][j], matrix[i][k] + matrix[k][j])
