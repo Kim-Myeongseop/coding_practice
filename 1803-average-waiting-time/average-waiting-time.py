@@ -11,4 +11,5 @@ class Solution:
             # else:
             #     end_time = end_time + t
             #     answer += end_time - s
-        return answer/len(customers)
+        answer = answer / len(customers)
+        return answer
