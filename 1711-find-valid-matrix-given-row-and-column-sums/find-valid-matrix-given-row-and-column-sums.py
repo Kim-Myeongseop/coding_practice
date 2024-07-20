@@ -10,6 +10,8 @@ class Solution:
                     matrix[row][col] = value
                     colSum[col] -= value
                     rowSum[row] -= value
+                elif colSum[col] == 0 and rowSum[row] == 0:
+                    break
         return matrix
 
 # 다른 풀이 1                
