@@ -10,7 +10,7 @@ class Solution:
         for i in range(n):
             o = str2num[original[i]]
             c = str2num[changed[i]]
-            transformation[o][c] = min(transformation[o][c], cost[i])
+            transformation[o][c] = min(transformation[o][c], cost[i])   # 비용이 더 작은 경우가 있을 수 있다.
         
         for k in range(26):
             for i in range(26):
