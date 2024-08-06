@@ -10,13 +10,12 @@ class Solution:
         while list1 != None and list2 != None:
             if list1.val <= list2.val:
                 current_node.next = ListNode(list1.val)
-                current_node = current_node.next   # 얕은 복사
+                current_node = current_node.next   # 얕은 복사 
                 list1 = list1.next
             else:
                 current_node.next = ListNode(list2.val)
-                current_node = current_node.next   # 얕은 복사
+                current_node = current_node.next   # 얕은 복사 
                 list2 = list2.next
-                
         if list1 == None:
             current_node.next = list2
         else:
