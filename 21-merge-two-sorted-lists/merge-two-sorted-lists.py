@@ -16,7 +16,6 @@ class Solution:
                 current_node.next = ListNode(list2.val)
                 current_node = current_node.next   # 얕은 복사
                 list2 = list2.next
-        
         if list1 == None:
             current_node.next = list2
         else:
