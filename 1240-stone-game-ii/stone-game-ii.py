@@ -8,7 +8,7 @@ class Solution:
                 return 0
             
             # 전부 가져올 수 있으면 전부 가져오는 것이 무조건 이득
-            if start + 2*M >= N:
+            if start + 2*M >= N: 
                 return sum(piles[start:])
             
             # memoization
@@ -23,7 +23,7 @@ class Solution:
                 opponent_score = recursiveStoneGame(start+x, max(x, M))
                 # 누군지에 관계 없이 start index 시점에서 가져올 수 있는 최고 점수(재귀함수라 최종까지 계산된 결과임)
                 my_score = max(my_score, total_score - opponent_score)
-            dp[(start, M)] = my_score   # memoization  
+            dp[(start, M)] = my_score   # memoization   
             return my_score
 
         return recursiveStoneGame(0, 1)
