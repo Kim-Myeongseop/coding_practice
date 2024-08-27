@@ -17,8 +17,9 @@ def solution(rectangle, characterX, characterY, itemX, itemY):
     # search
     directions = [(1,0), (-1,0), (0,1), (0,-1)]
     q = deque()
-    q.append((characterX, characterY))
-    visited = []   # 어차피 모든 길은 2개의 선택지 뿐이다. 즉, list로 관리할 필요가 없다.
+    start = (characterX, characterY)
+    q.append(start)
+    visited = (-1, -1)   # 어차피 모든 길은 2개의 선택지 뿐이다. 즉, list로 관리할 필요가 없다.
     item_cnt = 1e+8
     while q:
         x, y = q.pop()
@@ -30,11 +31,11 @@ def solution(rectangle, characterX, characterY, itemX, itemY):
             ny = y + direction[1]
             cx = nx + x   # (2*nx + 2*x)//2
             cy = (50-ny) + (50-y)   # (2*(50-ny) + 2*(50-y))//2
-            if (0 <= nx <= 50) and (0 <= ny <= 50) and (board[2*(50-ny)][2*nx] == 1) and (board[cy][cx] == 1) and (nx,ny) not in visited:
+            if (0 <= nx <= 50) and (0 <= ny <= 50) and (board[2*(50-ny)][2*nx] == 1) and (board[cy][cx] == 1) and (nx,ny) not in [visited, start]:   # start와 직전 방문만 확인하면 된다.
                 q.append((nx, ny))
                 answer += 1
                 break
-        visited.append((x, y))
+        visited = (x, y)
         if item_cnt < answer:   # 출발 지점까지 이어서 진행하다가 처음 구한 거리가 최소임을 알 때 break
             break
     # 재도착지점 직전에 끝나기 때문에 재도착지점 직전에서 재도착지점까지 거리를 추가해준다.
