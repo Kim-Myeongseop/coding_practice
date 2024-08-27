@@ -28,15 +28,14 @@ def solution(rectangle, characterX, characterY, itemX, itemY):
         for direction in directions:
             nx = x + direction[0]
             ny = y + direction[1]
-            cx = (2*nx + 2*x)//2
-            cy = (2*(50-ny) + 2*(50-y))//2
+            cx = nx + x   # (2*nx + 2*x)//2
+            cy = (50-ny) + (50-y)   # (2*(50-ny) + 2*(50-y))//2
             if (0 <= nx <= 50) and (0 <= ny <= 50) and (board[2*(50-ny)][2*nx] == 1) and (board[cy][cx] == 1) and (nx,ny) not in visited:
                 q.append((nx, ny))
                 answer += 1
                 break
         visited.append((x, y))
-        # 재도착지점 직전에 끝나기 때문에 재도착지점 직전에서 재도착지점까지 거리를 추가해준다.
-        if item_cnt < answer:
+        if item_cnt < answer:   # 출발 지점까지 이어서 진행하다가 처음 구한 거리가 최소임을 알 때 break
             break
     # 재도착지점 직전에 끝나기 때문에 재도착지점 직전에서 재도착지점까지 거리를 추가해준다.
     answer += 1
