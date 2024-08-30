@@ -9,3 +9,10 @@ def solution(land):
             row[i] = row[i] + max_prev   # row의 원소를 순차적으로 update
         prev = row   # 현재 row는 다음 번에 prev
     return max(prev)   # 마지막 prev의 최대값
+
+# 다른 풀이 1
+# def solution(land):
+#     for i in range(1, len(land)):
+#         for j in range(len(land[0])):
+#             land[i][j] = max(land[i -1][: j] + land[i - 1][j + 1:]) + land[i][j]
+#     return max(land[-1])
