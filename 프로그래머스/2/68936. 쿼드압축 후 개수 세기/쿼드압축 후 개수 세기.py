@@ -13,8 +13,7 @@ def solution(arr):
         c = devide_conquer(list(map(lambda x: x[m//2:], matrix[:m//2])))
         d = devide_conquer(list(map(lambda x: x[m//2:], matrix[m//2:])))
         if a == b == c == d:
-            if a != None:
-                return a
+            return a
         else:
             for x in [a, b, c, d]:
                 if x == 0:
