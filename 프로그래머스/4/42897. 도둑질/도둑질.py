@@ -3,7 +3,7 @@ def solution(money):
     # 0번째와 n번째 집 중 하나는 무조건 버려야되기 때문에 0 ~ n-2, 1 ~ n-1 두 경우의 수를 조회하자
     dp1 = [0 for _ in range(n)]   # (0번째 집 ~ n-2번째 집)
     dp2 = [0 for _ in range(n)]   # (1번째 집 ~ n-1번째 집)
-    
+      
     # 0번째 집 ~ n-2번째 집
     for i in range(n-1):
         if i == 0:
