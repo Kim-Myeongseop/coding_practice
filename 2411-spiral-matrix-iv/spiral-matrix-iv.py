@@ -17,7 +17,7 @@ class Solution:
             if 0 <= r + direction[0] < m and 0 <= c + direction[1] < n and matrix[r+direction[0]][c+direction[1]] == -1:
                 r += direction[0]
                 c += direction[1]
-            else:
+            else: 
                 i += 1
                 if i == 4:
                     i = 0
