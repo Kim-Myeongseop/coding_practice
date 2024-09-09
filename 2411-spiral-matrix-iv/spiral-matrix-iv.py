@@ -18,7 +18,7 @@ class Solution:
                 i += 1
                 if i == 4:
                     i = 0
-                direction = directions[i]
+                direction = directions[i]   # 방향 전환
             r += direction[0]
             c += direction[1]
-        return matrix
+        return matrix   
