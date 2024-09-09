@@ -14,14 +14,11 @@ class Solution:
             head = head.next
 
             direction = directions[i]
-            if 0 <= r + direction[0] < m and 0 <= c + direction[1] < n and matrix[r+direction[0]][c+direction[1]] == -1:
-                r += direction[0]
-                c += direction[1]
-            else: 
+            if not (0 <= r + direction[0] < m and 0 <= c + direction[1] < n and matrix[r+direction[0]][c+direction[1]] == -1):   # 방향 전환 해야되면
                 i += 1
                 if i == 4:
                     i = 0
                 direction = directions[i]
-                r += direction[0]
-                c += direction[1]
+            r += direction[0]
+            c += direction[1]
         return matrix
