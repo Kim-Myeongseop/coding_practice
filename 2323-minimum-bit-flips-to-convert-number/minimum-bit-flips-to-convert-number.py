@@ -2,7 +2,7 @@ class Solution:
     def minBitFlips(self, start: int, goal: int) -> int:
         return sum(map(int, bin(start ^ goal)[2:]))
 
-# # 다른 풀이 1
+# # 다른 풀이 1 
 # class Solution:
 #     def minBitFlips(self, start: int, goal: int) -> int:
 #         cnt = 0
