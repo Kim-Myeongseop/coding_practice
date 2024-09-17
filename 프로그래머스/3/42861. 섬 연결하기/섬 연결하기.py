@@ -53,12 +53,12 @@ def solution(n, costs):   # Prim
 #     return answer
 
 # # 다른 풀이 2 : Kruskal + Union-Find
-# def find(root_list, node):
+# def find(root_list, node):   # root가 될 때 까지 root를 초기화 해주고 return 해야 한다.
 #     if root_list[node] != node:   # root node가 아니라면,
-#         root_list[node] = find(root_list, root_list[node])   # update
+#         root_list[node] = find(root_list, root_list[node])   # 그 전까지의 node들을 모두 update
 #     return root_list[node]
 
-# def union(root_list, node1, node2):
+# def union(root_list, node1, node2):   # union은 root만 연결하므로, 그 사이의 값은 find에서 update 필요
 #     root1 = find(root_list, node1)
 #     root2 = find(root_list, node2)
 #     root_list[root2] = root1   # 일반적으로 작은 값이 먼저 오기 때문에, 작은 값을 root로 보내자.
