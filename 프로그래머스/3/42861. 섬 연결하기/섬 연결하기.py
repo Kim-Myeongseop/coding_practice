@@ -54,6 +54,8 @@ def solution(n, costs):   # Prim
 
 # # 다른 풀이 2 : Kruskal + Union-Find
 # def find(root_list, node):
+#     if root_list[node] != node:   # root node가 아니라면,
+#         root_list[node] = find(root_list, root_list[node])   # update
 #     return root_list[node]
 
 # def union(root_list, node1, node2):
