@@ -1,4 +1,4 @@
-def solution(n, s, a, b, fares):
+def solution(n, s, a, b, fares):   # Floyd Warshall
     answer = float('inf')
     # matrix 만들기(노드와 노드로 가는 최저 금액)
     matrix = [[float('inf') for _ in range(n)] for _ in range(n)]
@@ -20,3 +20,21 @@ def solution(n, s, a, b, fares):
         answer = min(answer, matrix[s-1][i] + matrix[i][a-1] + matrix[i][b-1])
     
     return answer
+
+# 다른 풀이 1 : Dijkstra
+# from collections import deque
+
+# def solution(n, s, a, b, fares):
+#     answer = 0
+#     INF = 1e+5 * 200 * 2
+#     graph = [[] for _ in range(n)]   # 각 노드별로 (연결할 노드, 거리 또는 비용)를 list로 저장
+#     for n1, n2, fare in fares:
+#         graph[n1-1].append((n2-1, fare))
+#         graph[n2-1].append((n1-1, fare))
+    
+#     distance = [INF]*n
+#     queue = deque()
+#     queue.append((start, 0))
+
+    # return answer
+
