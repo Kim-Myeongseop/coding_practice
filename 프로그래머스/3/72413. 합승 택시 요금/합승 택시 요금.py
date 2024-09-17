@@ -57,6 +57,5 @@ def solution(n, s, a, b, fares):
         fare = fare_lists[s-1][i] + fare_lists[i][a-1] + fare_lists[i][b-1]
         if fare < answer:
             answer = fare    
-
     return answer
 
