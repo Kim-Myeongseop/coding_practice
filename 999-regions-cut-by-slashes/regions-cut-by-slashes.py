@@ -18,9 +18,6 @@ class Solution:
                     board[3*r+1][3*c+1] = 1
                     board[3*r+2][3*c+2] = 1
         
-        for row in board:
-            print(row)
-        
         for r in range(3*n):
             for c in range(3*n):
                 if board[r][c] == 0:
